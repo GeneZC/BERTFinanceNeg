@@ -24,8 +24,6 @@ An overview of the BERT-based baseline is given below
 
 ![model](/assets/bert_spc.png)
 
-```
-
 ## Credits
 
 * For any issues or suggestions about this work, don't hesitate to create an issue or directly contact me via [gene_zhangchen@163.com](mailto:gene_zhangchen@163.com) !
