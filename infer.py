@@ -102,7 +102,7 @@ if __name__ == '__main__':
     opt.state_dict_path_list = [model_state_dict_paths[model_name] for model_name in opt.model_name_list]
     opt.embed_dim = 300
     opt.hidden_dim = 300
-    opt.polarities_dim = 3
+    opt.polarities_dim = 2
     opt.dropout = 0.3
     opt.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 

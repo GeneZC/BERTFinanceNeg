@@ -121,7 +121,7 @@ class Instructor:
                     t_outputs_all = torch.cat((t_outputs_all, t_outputs), dim=0)
 
         test_acc = n_test_correct / n_test_total
-        f1 = metrics.f1_score(t_targets_all.cpu(), torch.argmax(t_outputs_all, -1).cpu(), labels=[0, 1, 2], average='macro')
+        f1 = metrics.f1_score(t_targets_all.cpu(), torch.argmax(t_outputs_all, -1).cpu(), labels=[0, 1], average='macro')
         return test_acc, f1
 
     def run(self):
@@ -148,7 +148,7 @@ if __name__ == '__main__':
     parser.add_argument('--log_step', default=30, type=int)
     parser.add_argument('--embed_dim', default=300, type=int)
     parser.add_argument('--hidden_dim', default=300, type=int)
-    parser.add_argument('--polarities_dim', default=3, type=int)
+    parser.add_argument('--polarities_dim', default=2, type=int)
     parser.add_argument('--save', default=False, type=bool)
     parser.add_argument('--seed', default=776, type=int)
     parser.add_argument('--device', default=None, type=str)
@@ -166,11 +166,7 @@ if __name__ == '__main__':
         'orthogonal_': torch.nn.init.orthogonal_,
     }
     optimizers = {
-        'adadelta': torch.optim.Adadelta,  # default lr=1.0
-        'adagrad': torch.optim.Adagrad,  # default lr=0.01
         'adam': torch.optim.Adam,  # default lr=0.001
-        'adamax': torch.optim.Adamax,  # default lr=0.002
-        'asgd': torch.optim.ASGD,  # default lr=0.01
         'rmsprop': torch.optim.RMSprop,  # default lr=0.01
         'sgd': torch.optim.SGD,
     }
